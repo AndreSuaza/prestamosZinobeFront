@@ -18,7 +18,7 @@
         <td [className]="request.pago ? 'text-success': 'text-danger'">{{ request.pago ? 'Pago' : 'Pendiente' }}</td>
         <td>
             <button 
-                *ngIf="!request.pago" 
+                *ngIf="!request.pago && request.estado" 
                 (click)="pagar(request._id)"
                 type="button" 
                 class="btn btn-success" 
