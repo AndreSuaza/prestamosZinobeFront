@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-8">
+        <p class="mt-4">
+            Por favor escoja las solicitudes que desea ver.
+        </p>  
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" (click)="filtrar(1)" class="btn btn-primary">Rechazadas</button>
+            <button type="button" (click)="filtrar(2)"class="btn btn-primary">Aprobadas Pendientes de Pago</button>
+            <button type="button" (click)="filtrar(0)"class="btn btn-primary">Todas</button>
+        </div>
+        <hr>
+        <div *ngIf="requests">
+            <app-solicitudes [requests] = "requests"></app-solicitudes>
+        </div>
+      </div>
+    </div>
+</div>

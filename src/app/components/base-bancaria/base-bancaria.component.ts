@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-
-const bankBase =  environment.baseBank;
-
+import { BaseBancariaService } from "../../services/base-bancaria.service";
 @Component({
   selector: 'app-base-bancaria',
   templateUrl: './base-bancaria.component.html',
@@ -10,10 +7,10 @@ const bankBase =  environment.baseBank;
 })
 export class BaseBancariaComponent implements OnInit {
 
-  base:number = 0;
 
-  constructor() { 
-    this.base = bankBase
+
+  constructor(public baseBancariaService: BaseBancariaService) { 
+   
   }
 
   ngOnInit(): void {

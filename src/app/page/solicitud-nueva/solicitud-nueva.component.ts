@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersService } from "../../services/users.service";
 import { RequestsService } from "../../services/requests.service";
 import { ValidacionFormulariosService } from "../../services/validacion-formularios.service";
+import { BaseBancariaService } from "../../services/base-bancaria.service";
 import { RequestModel } from '../../models/request.model';
 
 @Component({
@@ -25,6 +26,7 @@ export class SolicitudNuevaComponent implements OnInit {
 
   constructor(public usersService: UsersService
             , public requestsService: RequestsService
+            , public baseBancariaService: BaseBancariaService
             , private validatacionFormularios: ValidacionFormulariosService) { }
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class SolicitudNuevaComponent implements OnInit {
     console.log(request);
     this.requestsService.createRequest(request)
         .subscribe(resp => { 
-          console.log(resp);
+          this.baseBancariaService.restarBase(resp.request.valor);
           this.info = resp.msg;
         }, 
         (err) => {

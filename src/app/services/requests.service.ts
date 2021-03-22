@@ -13,7 +13,22 @@ export class RequestsService {
 
   constructor(private http: HttpClient) {}
 
+  getRequests() {
+    return this.http.get<any>(apiUrl+'requests')
+    .pipe(
+      map((requests: any) => requests = requests.requests)
+    );
+  }
+
+  getRequestByUserId(userid) {
+    return this.http.get<any>(apiUrl+`requests/${userid}`);
+  }
+
   createRequest(request: RequestModel) {      
     return this.http.post<any>(apiUrl+'requests', request );
+  }
+
+  payRequests(id) {
+    return this.http.get<any>(apiUrl+`requests/pay/${id}`);
   }
 }

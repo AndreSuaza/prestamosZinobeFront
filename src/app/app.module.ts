@@ -14,6 +14,8 @@ import { UsuarioNuevoComponent } from './page/usuario-nuevo/usuario-nuevo.compon
 import { HttpClientModule  } from '@angular/common/http';
 import { MostrarUsuariosComponent } from './components/mostrar-usuarios/mostrar-usuarios.component';
 import { SolicitudNuevaComponent } from './page/solicitud-nueva/solicitud-nueva.component';
+import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
+import { ListarSolicitudesComponent } from './page/listar-solicitudes/listar-solicitudes.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { SolicitudNuevaComponent } from './page/solicitud-nueva/solicitud-nueva.
     UsuarioNuevoComponent,
     MostrarUsuariosComponent,
     SolicitudNuevaComponent,
+    SolicitudesComponent,
+    ListarSolicitudesComponent,
   ],
   imports: [
     BrowserModule,

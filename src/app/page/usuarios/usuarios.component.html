@@ -14,10 +14,28 @@
               <tr *ngFor="let user of users">
                 <td>{{ user.nombre }}</td>
                 <td>{{ user.correo }}</td>
-                <td><a class="btn btn-primary">Historial</a></td>
+                <td>
+                  <button type="button" (click)="getRequestByUserId(user._id)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Historial</button>
+                </td>
               </tr>
             </tbody>
           </table>
       </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <app-solicitudes [requests] = "requests"></app-solicitudes>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
