@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <h3 class="text-dark">Lista de Usuarios</h3>
+        <table class="table mt-4">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.correo }}</td>
+                <td><a class="btn btn-primary">Historial</a></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>

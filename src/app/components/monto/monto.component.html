@@ -1,0 +1,10 @@
+
+<div class="text-center">
+  <label>Ingrese un monto</label>
+  <small class="text-muted text-center">El monto debe ser mayor a {{ amountMin }} y Menor a {{ amountMax }}</small>
+  <div class="form-group">
+    <input [(ngModel)]="amount" (ngModelChange)=validateAmount() type="number" class="form-control"  placeholder="Ingrese un monto">
+    <small *ngIf="messagesError" class="form-text text-muted">{{ messagesError }}</small>
+  </div>
+</div>
+

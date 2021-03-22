@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <div *ngIf="!usersService.user" class="card text-center mt-4">
+            <div class="card-body">
+                
+                <h3 class="text-dark">Crear una cuenta</h3>
+
+                <form [formGroup]="newUser" >
+
+                    <div class="form-row centralForm">
+                        <input type="text" formControlName="nombre" class="form-control mt-4" placeholder="Nombre">
+                        <small class="form-text text-danger">{{ getError('Nombre','nombre') }}</small>
+
+                        <input type="email" formControlName="correo" class="form-control mt-4" placeholder="Correo">
+                        <small class="form-text text-danger">{{ getError('Correo','correo') }}</small>
+
+                        <input type="number" formControlName="cedula" class="form-control mt-4" placeholder="Cedula">
+                        <small class="form-text text-danger">{{ getError('Cedula','cedula', 'f') }}</small>
+                    </div>
+
+                    <button 
+                        (click)="createUser()" 
+                        class="btn btn-primary mt-4 btn-block"
+                        [disabled]="newUser.invalid"
+                    >Registrarce</button>
+
+                </form>
+            </div>
+        </div>
+        <div *ngIf="usersService.user">
+            <app-mostrar-usuarios></app-mostrar-usuarios>
+            <div class="card text-center mt-4">
+                <div class="card-body">
+                    <a class="btn btn-primary btn-block">Nueva Solicitud</a>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="error != ''" class="card text-center mt-4">
+            <div class="card-body">
+               <h3>tesr: {{ error }}</h3>
+            </div>
+        </div>
+        
+    </div>
+</div>
